@@ -13,5 +13,6 @@ public class Point {
     double dx = p2.x - x;
     double dy = p2.y - y;
     return Math.sqrt(dx*dx+dy*dy);
+
   }
 }
