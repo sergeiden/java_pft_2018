@@ -19,17 +19,19 @@ public class ContactHelper extends HelperBase {
     click(By.linkText("add new"));
   }
 
-  public void fillContactForm(ContactData contactData, boolean creation) {
-    type(By.name("firstname"), contactData.getName());
-    type(By.name("lastname"), contactData.getLastname());
-    type(By.name("mobile"), contactData.getMobilephone());
+  public void fillContactForm(ContactData contact, boolean creation) {
+    type(By.name("firstname"), contact.getName());
+    type(By.name("lastname"), contact.getLastname());
+    type(By.name("mobile"), contact.getMobilephone());
 
     if (creation) {
-      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+      if (contact.getGroup() != null) {
+        new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contact.getGroup());
+      }
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
-    type(By.name("address2"), contactData.getAddress());
+    type(By.name("address2"), contact.getAddress());
   }
 
   public void submitContact() {
