@@ -15,11 +15,11 @@ public class ContactModificationTests extends TestBase {
 
   @Test
   public void testContactCreation() {
-    app.getNavigationHelper().gotoHomePage();
+    app.goTo().gotoHomePage();
     if (!app.getContactHelper().isThereContact()) {
-      app.getNavigationHelper().gotoGroupPage();
-      if (!app.getGroupHelper().isThereAGroup()) {
-        app.getGroupHelper().createGroup(new GroupData("Test1", "Test2", "Test3"));
+      app.goTo().groupPage();
+      if (!app.group().isThereAGroup()) {
+        app.group().create(new GroupData("Test1", "Test2", "Test3"));
       }
       app.getContactHelper().createContact(new ContactData("Test", "Modified",
               "915756900", "Lenina, 20", "Test1"), true);
@@ -29,7 +29,7 @@ public class ContactModificationTests extends TestBase {
     ContactData contact = new ContactData("Test", "Modified", "915756900", "Lenina, 20", "Test1");
     app.getContactHelper().fillContactForm(contact, false);
     app.getContactHelper().submitContactModification();
-    app.getNavigationHelper().gotoHomePage();
+    app.goTo().gotoHomePage();
     List<ContactData> after = app.getContactHelper().getContactList();
 
     before.remove(before.size()-1);

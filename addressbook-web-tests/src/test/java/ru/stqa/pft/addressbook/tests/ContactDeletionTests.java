@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class ContactDeletionTests extends TestBase{
 
-  @Test
+  @Test (enabled = true)
   public void testContactDeletion() {
     if (!app.getContactHelper().isThereContact()) {
       app.getContactHelper().createContact(new ContactData("Test", "Testov",
@@ -22,7 +22,7 @@ public class ContactDeletionTests extends TestBase{
     app.getContactHelper().selectContact(before.size() - 1);
     app.getContactHelper().deleteContact();
     app.getContactHelper().confirmContactDeletion();
-    app.getNavigationHelper().gotoHomePage();
+    app.goTo().gotoHomePage();
     List<ContactData> after = app.getContactHelper().getContactList();
     Assert.assertEquals(after.size(), before.size() - 1);
 

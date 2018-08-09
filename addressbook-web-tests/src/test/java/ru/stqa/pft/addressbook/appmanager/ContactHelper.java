@@ -82,7 +82,6 @@ public class ContactHelper extends HelperBase {
 
       ContactData contact = new ContactData(id, name, lastname, null, null, null);
       contacts.add(contact);
-      System.out.println(contact);
     }
     return contacts;
   }

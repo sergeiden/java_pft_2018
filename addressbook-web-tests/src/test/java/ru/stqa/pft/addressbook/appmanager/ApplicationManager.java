@@ -35,6 +35,7 @@ public class ApplicationManager {
     }
 
     wd.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+    wd.manage().window().maximize();
     wd.get("http://localhost/addressbook/");
     groupHelper = new GroupHelper(wd);
     navigationHelper = new NavigationHelper(wd);
@@ -47,11 +48,11 @@ public class ApplicationManager {
     wd.quit();
   }
 
-  public GroupHelper getGroupHelper() {
+  public GroupHelper group() {
     return groupHelper;
   }
 
-  public NavigationHelper getNavigationHelper() {
+  public NavigationHelper goTo() {
     return navigationHelper;
   }
 
