@@ -19,7 +19,7 @@ public class ContactModificationTests extends TestBase {
     if (!app.getContactHelper().isThereContact()) {
       app.goTo().groupPage();
       if (!app.group().isThereAGroup()) {
-        app.group().create(new GroupData("Test1", "Test2", "Test3"));
+        app.group().create(new GroupData().withName("Test1"));
       }
       app.getContactHelper().createContact(new ContactData("Test", "Modified",
               "915756900", "Lenina, 20", "Test1"), true);
