@@ -22,15 +22,16 @@ public class ContactModificationTests extends TestBase {
       if (app.group().all().size() == 0) {
         app.group().create(new GroupData().withName("Test1"));
       }
-      app.contact().create(new ContactData("Test", "Modified",
-              "915756900", "Lenina, 20", "Test1"), true);
+      app.contact().create(new ContactData()
+              .withName("Test").withLastname("Testov").withMobilephone("915756900").withAddress("Lenina, 20"), true);
     }
   }
 
   @Test
   public void testContactCreation() {
     List<ContactData> before = app.contact().list();
-    ContactData contact = new ContactData("Test", "Modified", "915756900", "Lenina, 20", "Test1");
+    ContactData contact = new ContactData()
+            .withName("Test").withLastname("Modified").withMobilephone("915756900").withAddress("Lenina, 20").withGroup("Test1");
     int index = before.size() - 1;
     app.contact().modify(contact, index);
     app.goTo().homePage();
