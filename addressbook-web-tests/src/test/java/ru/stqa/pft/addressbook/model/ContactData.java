@@ -8,7 +8,7 @@ public class ContactData {
   private String address;
   private String group;
 
-  public ContactData wtihId(int id) {
+  public ContactData withId(int id) {
     this.id = id;
     return this;
   }
@@ -68,8 +68,17 @@ public class ContactData {
 
     ContactData that = (ContactData) o;
 
+    if (id != that.id) return false;
     if (name != null ? !name.equals(that.name) : that.name != null) return false;
     return lastname != null ? lastname.equals(that.lastname) : that.lastname == null;
+  }
+
+  @Override
+  public int hashCode() {
+    int result = id;
+    result = 31 * result + (name != null ? name.hashCode() : 0);
+    result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
+    return result;
   }
 
   @Override
@@ -81,10 +90,4 @@ public class ContactData {
             '}';
   }
 
-  @Override
-  public int hashCode() {
-    int result = name != null ? name.hashCode() : 0;
-    result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
-    return result;
-  }
 }
