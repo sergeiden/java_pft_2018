@@ -12,6 +12,17 @@ public class ContactData {
   private String address;
   private String group;
 
+  public String getAllPhones() {
+    return allPhones;
+  }
+
+  public ContactData withAllPhones(String allPhones) {
+    this.allPhones = allPhones;
+    return this;
+  }
+
+  private String allPhones;
+
 
   public ContactData withHome(String home) {
     this.homePhone = home;
