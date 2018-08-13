@@ -25,8 +25,8 @@ public class ContactCreationTests extends TestBase {
     GroupData testGroup = app.group().all().iterator().next();
     app.goTo().homePage();
     Contacts before = app.contact().all();
-    ContactData contact = new ContactData()
-            .withName("Test").withLastname("Modified").withMobilephone("915756900").withAddress("Lenina, 20").withGroup(testGroup.getName());
+    ContactData contact = new ContactData().withName("Test").withLastname("Test2")
+            .withHome("915756900").withMobile("90000").withWork("77777777").withAddress("Lenina, 20").withGroup(testGroup.getName());
     app.contact().create(contact, true);
     app.goTo().homePage();
     Contacts after = app.contact().all();

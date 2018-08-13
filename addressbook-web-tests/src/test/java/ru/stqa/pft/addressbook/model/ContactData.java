@@ -1,17 +1,39 @@
 package ru.stqa.pft.addressbook.model;
 
 public class ContactData {
-  private int id = Integer.MAX_VALUE;;
+  private int id = Integer.MAX_VALUE;
+  ;
   private String name;
   private String lastname;
-  private String mobilephone;
+
+  private String homePhone;
+  private String mobilePhone;
+  private String workPhone;
   private String address;
   private String group;
+
+
+  public ContactData withHome(String home) {
+    this.homePhone = home;
+    return this;
+  }
+
+  public ContactData withMobile(String mobile) {
+    this.mobilePhone = mobile;
+    return this;
+  }
+
+  public ContactData withWork(String work) {
+    this.workPhone = work;
+    return this;
+  }
+
 
   public ContactData withId(int id) {
     this.id = id;
     return this;
   }
+
   public ContactData withName(String name) {
     this.name = name;
     return this;
@@ -19,11 +41,6 @@ public class ContactData {
 
   public ContactData withLastname(String lastname) {
     this.lastname = lastname;
-    return this;
-  }
-
-  public ContactData withMobilephone(String mobilephone) {
-    this.mobilephone = mobilephone;
     return this;
   }
 
@@ -37,16 +54,24 @@ public class ContactData {
     return this;
   }
 
+  public String getHomePhone() {
+    return homePhone;
+  }
+
+  public String getMobilePhone() {
+    return mobilePhone;
+  }
+
+  public String getWorkPhone() {
+    return workPhone;
+  }
+
   public String getName() {
     return name;
   }
 
   public String getLastname() {
     return lastname;
-  }
-
-  public String getMobilephone() {
-    return mobilephone;
   }
 
   public String getAddress() {
@@ -87,7 +112,11 @@ public class ContactData {
             "id=" + id +
             ", name='" + name + '\'' +
             ", lastname='" + lastname + '\'' +
+            ", homePhone='" + homePhone + '\'' +
+            ", mobilePhone='" + mobilePhone + '\'' +
+            ", workPhone='" + workPhone + '\'' +
+            ", address='" + address + '\'' +
+            ", group='" + group + '\'' +
             '}';
   }
-
 }
