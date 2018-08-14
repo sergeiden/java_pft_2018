@@ -48,6 +48,6 @@ public class ContactDetailsTests extends TestBase {
   }
 
   public static String cleaned(String contactData) {
-    return contactData.replaceAll("\\s", "").replaceAll("H:|W:|M:", "");
+    return contactData.replaceAll("\\s", "").replaceAll("H:|W:|M:", "").replaceAll("Memberof:Test1", "");
   }
 }
