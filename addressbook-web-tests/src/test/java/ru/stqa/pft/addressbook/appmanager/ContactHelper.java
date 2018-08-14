@@ -36,7 +36,7 @@ public class ContactHelper extends HelperBase {
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
-    type(By.name("address2"), contact.getAddress());
+    type(By.name("address"), contact.getAddress());
   }
 
   public void submitContact() {
@@ -118,8 +118,14 @@ public class ContactHelper extends HelperBase {
     String home = wd.findElement(By.name("home")).getAttribute("value");
     String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
     String work = wd.findElement(By.name("work")).getAttribute("value");
+    String address = wd.findElement(By.name("address")).getAttribute("value");
     wd.navigate().back();
     return new ContactData()
-            .withId(contact.getId()).withName(name).withLastname(lastname).withHome(home).withMobile(mobile).withWork(work);
+            .withId(contact.getId()).withName(name).withLastname(lastname).withHome(home).withMobile(mobile).withWork(work).withAddress(address);
+  }
+
+  public String infoFromDetailsPage(ContactData contact) {
+    wd.findElement(By.cssSelector(String.format("a[href = 'view.php?id=%s']", contact.getId()))).click();
+    return wd.findElement(By.id("content")).getText();
   }
 }
