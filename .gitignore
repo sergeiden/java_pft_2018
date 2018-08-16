@@ -29,3 +29,4 @@ addressbook-web-tests/build/tmp/testContacts/jar_extract_5045865102045697784_tmp
 addressbook-web-tests/build/tmp/testGroups/jar_extract_8015502095985261873_tmp
 addressbook-web-tests/build/tmp/testContacts/jar_extract_9019305214171987229_tmp
 addressbook-web-tests/build/tmp/testContacts/jar_extract_360693349494383454_tmp
+*.log
