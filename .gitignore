@@ -15,3 +15,16 @@ gradle-app.setting
 .idea/workspace.xml
 .idea/misc.xml
 .idea/workspace.xml___jb_tmp___
+addressbook-web-tests/build/tmp/testContacts/jar_extract_388196311749824319_tmp
+*.html
+addressbook-web-tests/build/reports/tests/testContacts/css/style.css
+*.js
+addressbook-web-tests/build/reports/tests/testGroups/css/style.css
+addressbook-web-tests/build/tmp/testGroups/jar_extract_7640170408698064449_tmp
+addressbook-web-tests/build/tmp/testGroups/jar_extract_5573169531509227345_tmp
+*.css
+addressbook-web-tests/build/test-results/testContacts/binary/output.bin.idx
+*.bin
+addressbook-web-tests/build/tmp/testContacts/jar_extract_5045865102045697784_tmp
+addressbook-web-tests/build/tmp/testGroups/jar_extract_8015502095985261873_tmp
+addressbook-web-tests/build/tmp/testContacts/jar_extract_9019305214171987229_tmp
