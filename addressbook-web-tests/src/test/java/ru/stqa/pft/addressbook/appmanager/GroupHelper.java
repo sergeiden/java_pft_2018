@@ -6,9 +6,7 @@ import org.openqa.selenium.WebElement;
 import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by serg on 21.07.2018.
@@ -92,7 +90,7 @@ public class GroupHelper extends HelperBase {
   private Groups groupCache = null;
 
   public Groups all() {
-    if (groupCache != null){
+    if (groupCache != null) {
       return new Groups(groupCache);
     }
     Groups groupCache = new Groups();
@@ -103,5 +101,14 @@ public class GroupHelper extends HelperBase {
       groupCache.add(new GroupData().withId(id).withName(name));
     }
     return new Groups(groupCache);
+  }
+
+  public void deleteAll() {
+    List<WebElement> elements = wd.findElements(By.name("selected[]"));
+    for (WebElement element : elements) {
+      element.click();
+    }
+    click(By.name("delete"));
+    isElementPresent(By.className("msgbox"));
   }
 }
