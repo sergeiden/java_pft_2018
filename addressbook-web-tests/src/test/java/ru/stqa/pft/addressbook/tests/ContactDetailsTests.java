@@ -36,18 +36,17 @@ public class ContactDetailsTests extends TestBase {
     ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
     String contactInfoFromDetailsPage = app.contact().infoFromDetailsPage(contact);
 
-    assertThat(merged(contactInfoFromEditForm), equalTo (cleaned(contactInfoFromDetailsPage)));
-
+    assertThat(merged(contactInfoFromEditForm), equalTo(cleaned(contactInfoFromDetailsPage)));
   }
 
   private String merged(ContactData contact) {
     return Stream.of(contact.getName(), contact.getLastname(), contact.getAddress()
             , contact.getHomePhone(), contact.getMobilePhone(), contact.getWorkPhone())
-            .map(ContactDetailsTests :: cleaned)
+            .map(ContactDetailsTests::cleaned)
             .collect(Collectors.joining(""));
   }
 
   public static String cleaned(String contactData) {
-    return contactData.replaceAll("\\s", "").replaceAll("H:|W:|M:", "").replaceAll("Memberof:Test1", "");
+    return contactData.replaceAll("\\s", "").replaceAll("H:|W:|M:|Member.+", "");
   }
 }
